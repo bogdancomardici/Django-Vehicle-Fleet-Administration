@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <title>Adauga Garaj</title>
+
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <style>
+        body {
+            background: #1F1D36;
+            color: #C147E9;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: none;
+        }
+
+        ol {
+            display: table;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        li {
+            list-style-type: none;
+            padding: 5px;
+            clear: left;
+            text-align: right;
+            float: center;
+
+        }
+
+        div {
+            text-align: center;
+            padding-top: 2%;
+
+        }
+
+        h2 {
+            padding-bottom: 20%;
+            padding-top: 2%;
+            text-align: center;
+            color: #C147E9;
+            font-size: xx-large;
+            padding: 10px;
+            background-color: aliceblue;
+            width: 40%;
+            margin: auto;
+            margin-top: 5%;
+            margin-bottom: 2%;
+            border: 2px solid black;
+            border-radius: 15px;
+
+        }
+
+
+
+        label {
+            width: 180px;
+            clear: left;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        label {
+            float: left;
+        }
+
+        #Anuleaza {
+            text-shadow: none;
+            margin-top: 20px;
+        }
+
+        #Adauga {
+            margin-top: 20px;
+        }
+
+        #Formular {
+            text-align: center;
+            color: #C147E9;
+            font-size: large;
+            padding: 1%;
+            background-color: aliceblue;
+            width: 40%;
+            margin-left: 30%;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>DETALII GARAJ</h2>
+    </center>
+
+    <div id="Formular">
+        <form action="" method="POST">{% csrf_token %}
+            <ol>
+                {% for field in GarajForm %}
+                {{ field.errors }}
+                <li><label for="field"></label> {{ field.label_tag }} {{ field }} </label></li>
+                {% endfor %}
+            </ol>
+
+            <input type="submit" class="btn btn-primary" value="ADAUGA" id="Adauga" />
+            <a href="{% url 'listgaraje' %}" class="btn btn-danger" id="Anuleaza">ANULEAZA</a>
+
+        </form>
+    </div>
+
+
+
+
+</body>

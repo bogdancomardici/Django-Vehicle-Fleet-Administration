@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<style type="text/css">
+    h1 {
+
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 10px;
+        padding-bottom: 40px;
+        background: #1F1D36;
+        color: #C147E9;
+    }
+
+    table {
+
+        text-align: center;
+
+    }
+
+    div {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    body {
+        background: #1F1D36;
+        color: #C147E9;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+    #acasa {
+        text-align: right;
+        padding-top: 10px;
+        background: #1F1D36;
+        padding-right: 10px;
+        text-shadow: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #ordonare {
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+</style>
+
+<head>
+    <title>Firma Transport</title>
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <div id="acasa"><a class="btn btn-primary" href="{% url 'index' %}">Acasa</a></div>
+        <h1><b>
+                PRODUCATORI
+        </h1></b>
+    </center>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">PRODUCATOR</th>
+                <th scope="col">NUMAR VEHICULE</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in prod %}
+            <tr>
+                <td>{{ p.nume }}</td>
+                <td>{{ p.numar }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>

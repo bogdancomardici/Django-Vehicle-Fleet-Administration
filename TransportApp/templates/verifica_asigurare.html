@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<style type="text/css">
+    h1 {
+
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 10px;
+        padding-bottom: 40px;
+        background: #1F1D36;
+        color: #C147E9;
+    }
+
+    div {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    body {
+        background: #1F1D36;
+        color: #C147E9;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+    #acasa {
+        text-align: right;
+        padding-top: 10px;
+        background: #1F1D36;
+        padding-right: 10px;
+        text-shadow: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #Formular {
+            text-align: center;
+            color: #C147E9;
+            font-size: large;
+            padding: 1%;
+            background-color: white;
+            width: 40%;
+            margin-left: 30%;
+            padding-top: 20px;
+        }
+    #ASIG {
+        text-align: center;
+            color: black;
+            font-size: large;
+            padding: 1%;
+            background-color: white;
+            width: 80%;
+            margin-left: 10%;
+            padding-top: 20px;
+            font-size: x-large;
+    }
+
+    #noASIG {
+        text-align: center;
+            color: red;
+            font-size: large;
+            padding: 1%;
+            background-color: white;
+            width: 80%;
+            margin-left: 10%;
+            padding-top: 20px;
+            font-size: x-large;
+    }
+
+    #NR {
+        display: inline;
+        color: red;
+    }
+
+</style>
+
+<head>
+    <title>Verifica Asigurare</title>
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <div id="acasa"><a class="btn btn-primary" href="{% url 'index' %}">Acasa</a></div>
+        <h1><b>
+                VERIFICA ASIGURARE
+        </h1></b>
+    </center>
+    
+    <div id="Formular">
+    <form action="" method="post" id="ordonare">
+        <b>
+            {% csrf_token %}
+            {{ VerifAsigForm }}
+            <input type="submit" value="CAUTA">
+        </b>
+    </form>
+    </div>
+    {% if masina %}
+        {% for m in masina %}
+                
+                    <div id ="ASIG"> MASINA CU NUMARUL DE INMATRICULARE <div id = "NR">{{ m.nr_inmatriculare }}</div> ESTE ASIGURATA DE <div id = "NR">{{ m.nume }}</div> PANA LA <div id = "NR">{{ m.data_sfarsit|date:"d M, Y" }}</div></div>
+                
+        {% endfor %}
+    
+    {% else %}
+        <div id ="noASIG">MASINA NU ARE ASIGURARE VALABILA SAU ACEST NUMAR DE INMATRICULARE NU EXISTA!</div>
+    {% endif %}
+    
+    
+</body>

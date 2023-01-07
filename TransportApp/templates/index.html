@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <title>Firma Transport</title>
+    <style>
+        body {
+            background: #1F1D36;
+            color: #C147E9;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        h1 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            padding-bottom: 3%;
+        }
+
+        div {
+            text-align: center;
+            color: #C147E9;
+            font-size: xx-large;
+            padding: 1%;
+            background-color: aliceblue;
+            width: 50%;
+            margin-left: 25%;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        a {
+            color: #C147E9;
+            text-decoration: none;
+        }
+
+        #VERIFASIG {
+            margin-top: 5%;
+            text-align: center;
+            color: #810CA8;
+            font-size: xx-large;
+            padding: 1%;
+            background-color: aliceblue;
+            width: 50%;
+            margin-left: 25%;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        #NRSOFERI {
+            
+            text-align: center;
+            color: #810CA8;
+            font-size: xx-large;
+            padding: 1%;
+            background-color: aliceblue;
+            width: 50%;
+            margin-left: 25%;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+    </style>
+    <h1>FIRMA TRANSPORT</h1>
+</head>
+
+<body>
+    <div id="SOFERI"><a href="{% url 'listsoferi' %}">SOFERI</a></div>
+    <div id="ORASE"><a href="{% url 'listorase' %}">ORASE</a></div>
+    <div id="GARAJE"><a href="{% url 'listgaraje' %}">GARAJE</a></div>
+    <div id="MASINI"><a href="{% url 'listmasini' %}">MASINI</a></div>
+    <div id="ASIGURATORI"><a href="{% url 'listasiguratori' %}">ASIGURATORI</a></div>
+    <div id="PRODUCATORI"><a href="{% url 'listproducatori' %}">PRODUCATORI</a></div>
+    <div id="MODELE"><a href="{% url 'listmodele' %}">MODELE</a></div>
+    <div id="CONDUCE"><a href="{% url 'listconduce' %}">CONDUCE</a></div>
+    <div id="ASIGURA"><a href="{% url 'listasigura' %}">ASIGURA</a></div>
+
+    <div id = "VERIFASIG"><a href="{% url 'verifica_asigurare' %}">VERIFICA ASIGURARE</a></div>
+    <div id = "NRSOFERI"><a href="{% url 'nrsoferi' %}">NR DE SOFERI DIN FIECARE ORAS</a></div>
+    <div id = "ORASEMASINI"><a href="{% url 'orasemasini' %}">MASINI + ORASE</a></div>
+    <div id = "ORASEMASINI"><a href="{% url 'nrvehicule' %}">NUMAR VEHICULE</a></div>
+
+</body>

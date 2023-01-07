@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<style type="text/css">
+    h1 {
+
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 10px;
+        padding-bottom: 40px;
+        background: #1F1D36;
+        color: #C147E9;
+    }
+
+    table {
+
+        text-align: center;
+
+    }
+
+    div {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    body {
+        background: #1F1D36;
+        color: #C147E9;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+    #acasa {
+        text-align: right;
+        padding-top: 10px;
+        background: #1F1D36;
+        padding-right: 10px;
+        text-shadow: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #ordonare {
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+</style>
+
+<head>
+    <title>Firma Transport</title>
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <div id="acasa"><a class="btn btn-primary" href="{% url 'index' %}">Acasa</a></div>
+        <h1><b>
+                ASIGURA
+        </h1></b>
+    </center>
+    <center>
+        <div><a class="btn btn-primary" href="addasigura">Adauga o polita noua</a></div>
+
+    </center>
+
+    <form action="" method="post" id="ordonare">
+        <b>
+            {% csrf_token %}
+            {{ CriteriuAsigura }}
+            <input type="submit" value="Aplica">
+        </b>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID MASINA</th>
+                <th scope="col">ID ASIGURATOR</th>
+                <th scope="col">DATA INCEPUT</th>
+                <th scope="col">DATA SFARSIT</th>
+                <th scope="col">VALOARE POLITA</th>
+                <td></td>
+                <td></td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for polita in asigura %}
+            <tr>
+                <td>{{ polita.id_masina }}</td>
+                <td>{{ polita.id_asigurator }}</td>
+                <td>{{ polita.data_inceput|date:"d M, Y" }}</td>
+                <td>{{ polita.data_sfarsit|date:"d M, Y" }}</td>
+                <td>{{ polita.valoare_polita }}</td>
+                <td><a href="{% url 'updateasigura' polita.id_masina polita.id_asigurator %}"
+                        class="btn btn-warning">Editeaza</a></td>
+                <td><a href="{% url 'deleteasigura' polita.id_masina polita.id_asigurator %}"
+                        class="btn btn-danger">Sterge</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
